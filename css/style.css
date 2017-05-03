@@ -1,0 +1,26 @@
+.search-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-wrapper .input-holder {
+    height: 70px;
+    width: 70px;
+    background: rgba(173, 213, 247, 0);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper.active .input-holder {
+    width: 450px;
+    border-radius: 50px;
+    background: rgba(22, 25, 59, 0.5);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+}
+
+.search-wrapper .input-holder .search-input {
+    
+}
