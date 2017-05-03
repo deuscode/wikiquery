@@ -1,3 +1,13 @@
+body {
+    background-image: url('../images/FoggyCity.jpg');
+    background-repeat: no-repeat;
+    background-color: #35478C;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    
+}
+
 .search-wrapper {
     position: absolute;
     top: 50%;
@@ -37,7 +47,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    color: #ADD5F7;
+    color: #F2F2F2;
     transform: translate(0px, 60px);
     transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
     transition-delay: 0.3s;
@@ -59,7 +69,7 @@
     position: relative;
     z-index: 2;
     float: right;
-    cursor: crosshair;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 
@@ -114,7 +124,7 @@
     right: 20px;
     width: 25px;
     height: 25px;
-    cursor: crosshair;
+    cursor: pointer;
     transform: rotateX(-180deg);
     transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
     transition-delay: 0.2s;
