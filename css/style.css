@@ -1,29 +1,39 @@
 body {
-    background-image: url('../images/FoggyCity.jpg');
-    color: #16193B;
-    background-repeat: no-repeat;
+    background: url("../images/FoggyCity.jpg") no-repeat fixed;
+    color: #FFFFFF;
     background-color: #35478C;
+    overflow: hidden;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
 }
 
 a:hover {
-    color: #ABA8FF;
+    color: #35478C;
     text-decoration: none;
 }
 
 a {
     text-decoration: none;
-    color: #35478C;
+    color: #ABA8FF;
+}
+
+h6 {
+    margin: 0;
+    padding: 4px;
 }
 
 .author {
+    background-color: #000000;
+    padding: 20,20,20,20;
+    border-radius: 10px;
+    opacity: 0.6;
     position: absolute;
-    top: 90%;
-    left: 90%;
-    
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .search-wrapper {
@@ -43,7 +53,7 @@ a {
 }
 
 .search-wrapper.active .input-holder {
-    width: 450px;
+    width: 200px;
     border-radius: 50px;
     background: rgba(22, 25, 59, 0.5);
     transition: all .5s cubic-bezier(0.500, 0.105, 0.035, 1.570);
