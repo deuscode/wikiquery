@@ -1,12 +1,7 @@
+
 body {
-    background: url("../images/FoggyCity.jpg") no-repeat fixed;
     color: #FFFFFF;
-    background-color: #35478C;
-    overflow: hidden;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-color: #658EAC;
 }
 
 a:hover {
@@ -24,8 +19,24 @@ h6 {
     padding: 4px;
 }
 
+.backgroundimage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("../images/FoggyCity.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    opacity: 0.8;
+}
+
 .author {
     background-color: #000000;
+    color: white;
     border-radius: 10px;
     opacity: 0.6;
     position: absolute;

@@ -15,10 +15,11 @@
 </head>
 
 <body>
+  <div class="backgroundimage"></div>
   <div class="search-wrapper">
     <div class="input-holder">
-      <input type="text" class="search-input" placeholder="search wiki..." />
-      <button class="search-icon" onclick="searchAnimation(this, event);"><span></span></button>
+      <input type="text" class="search-input" id="userInput" placeholder="search wiki..." />
+      <button type="button" class="search-icon" id="search" onmouseover="searchAnimation(this, event);"><span></span></button>
     </div>
     <span class="close" onclick="searchAnimation(this, event);"></span>
     
