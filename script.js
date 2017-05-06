@@ -56,10 +56,14 @@ function searchAnimation(obj, evt) {
     var container = $(obj).closest('.search-wrapper');
     if (!container.hasClass('active')) {
         container.addClass('active');
+        var randomText = document.getElementById('random');
+        randomText.innerHTML += "random";
         evt.preventDefault();
     } else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
         container.removeClass('active');
         container.find('.search-input').val('');
+        var randomText = document.getElementById('random');
+        randomText.innerHTML = "";
         $('#articles').html(''); // clear page after clicking close
         $('.backgroundimage').css("overflow", "hidden");
     }

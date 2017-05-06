@@ -37,6 +37,10 @@ li:hover {
     box-shadow: 2px 2px 1px #000000;
 }
 
+font:hover {
+    color: white;
+}
+
 #articles {
     list-style-type: none;
     margin: 0;
