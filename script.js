@@ -1,25 +1,41 @@
-$(document).ready(function () {
+// Global variable for animating the search bar
+var page_side = $(window).scrollLeft();
 
+$(document).ready(function () {
+    //function to submit search with enter key
     $('#userInput').keydown(function (enter) {
         if (enter.which == 13) {
             $('#search').click();
         }
     });
 
+    //click function to submit search
     $('#search').click(function () {
 
-        var userInput = $('#userInput').val();
-        var urlAPI = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + userInput + "&format=json&callback=?"
+        //Animate search bar to the top of the page
+        $('.search-wrapper').animate({
+            right: page_side,
+        }, 1000);
+        $('.backgroundimage').css("overflow", "scroll");
 
+        // Variables
+        var userInput = $('#userInput').val(); //user input variable
+        var urlAPI = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + userInput +
+            "&format=json&callback=?" // API variable
+
+        // AJAX call to wikipedia API
         $.ajax({
             url: urlAPI,
             async: false,
             dataType: 'json',
-            type: 'POST',
+            type: 'GET',
             success: function (data) {
-                console.log(data[1][0]);
-                console.log(data[2][0]);
-                console.log(data[3][0]);
+                $('#articles').html(''); //clear content before new search
+                for (var i = 0; i < data[1].length; i++) {
+                    $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li>" +
+                        data[1][i] + "<p>" + data[2][i] + "</p></li></a>");
+                }
+                $('#userInput').val(''); //clear search bar content after searching
             },
             error: function (error) {
                 console.log(error);
@@ -29,6 +45,7 @@ $(document).ready(function () {
 
 });
 
+//function for opening and closing search bar
 function searchAnimation(obj, evt) {
     var container = $(obj).closest('.search-wrapper');
     if (!container.hasClass('active')) {
@@ -37,5 +54,7 @@ function searchAnimation(obj, evt) {
     } else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
         container.removeClass('active');
         container.find('.search-input').val('');
+        $('#articles').html(''); // clear page after clicking close
+        $('.backgroundimage').css("overflow", "hidden");
     }
 }

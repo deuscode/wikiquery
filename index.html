@@ -15,18 +15,29 @@
 </head>
 
 <body>
-  <div class="backgroundimage"></div>
-  <div class="search-wrapper">
-    <div class="input-holder">
-      <input type="text" class="search-input" id="userInput" placeholder="search wiki..." />
-      <button type="button" class="search-icon" id="search" onmouseover="searchAnimation(this, event);"><span></span></button>
+  <!-- Background Image -->
+  <div class="backgroundimage">
+    <!-- User input for search & search bar animation holder -->
+    <div style="position: fixed" <div class="search-wrapper">
+      <div class="input-holder">
+        <input type="text" class="search-input" id="userInput" placeholder="search wiki..." />
+        <button type="button" class="search-icon" id="search" onmouseover="searchAnimation(this, event);"><span></span></button>
+      </div>
+      <!-- Search bar animation on close -->
+      <span class="close" onclick="searchAnimation(this, event);"></span>
     </div>
-    <span class="close" onclick="searchAnimation(this, event);"></span>
-    
-  </div>
-  <div class="author">
-  <h6>- built by <a href="https://github.com/deuscode" target="_blank">peter kay</a></h6>
-  <h6>- API by <a href="#" target="_blank">Wikipedia</a></h6>
+
+
+    <!-- list of articles to appear -->
+    <div class="list">
+      <ul id="articles">
+      </ul>
+    </div>
+    <!-- author credit -->
+    <div class="author">
+      <h6>- built by <a href="https://github.com/deuscode" target="_blank">peter kay</a></h6>
+      <h6>- API by <a href="#" target="_blank">Wikipedia</a></h6>
+    </div>
   </div>
   <!-- My Javascript -->
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
