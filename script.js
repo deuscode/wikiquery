@@ -1,5 +1,11 @@
 // Global variable for animating the search bar
 var page_side = $(window).scrollLeft();
+window.onload = function() {
+//Animate search bar to the top of the page
+        $('.search-wrapper').animate({
+            right: page_side + 150,
+        }, 1000);
+}
 
 $(document).ready(function () {
     //function to submit search with enter key
@@ -12,10 +18,6 @@ $(document).ready(function () {
     //click function to submit search
     $('#search').click(function () {
 
-        //Animate search bar to the top of the page
-        $('.search-wrapper').animate({
-            right: page_side + 150,
-        }, 1000);
         $('.backgroundimage').css("overflow", "scroll");
 
         // Variables
