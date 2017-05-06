@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         //Animate search bar to the top of the page
         $('.search-wrapper').animate({
-            right: page_side,
+            right: page_side + 150,
         }, 1000);
         $('.backgroundimage').css("overflow", "scroll");
 
@@ -32,8 +32,8 @@ $(document).ready(function () {
             success: function (data) {
                 $('#articles').html(''); //clear content before new search
                 for (var i = 0; i < data[1].length; i++) {
-                    $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li>" +
-                        data[1][i] + "<p>" + data[2][i] + "</p></li></a>");
+                    $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li><font color='#F3E08A'>" +
+                        data[1][i] + "</font><p>" + data[2][i] + "</p></li></a>");
                 }
                 $('#userInput').val(''); //clear search bar content after searching
             },
@@ -42,9 +42,13 @@ $(document).ready(function () {
             }
         })
     });
-
+    $('.search-icon').on('click', function (event) {
+        $('#articles').addClass('animated slideInUp');
+        $('#articles').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+            $('#articles').removeClass('animated slideInUp');
+        });
+    });
 });
-
 //function for opening and closing search bar
 function searchAnimation(obj, evt) {
     var container = $(obj).closest('.search-wrapper');
