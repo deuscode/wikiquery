@@ -34,7 +34,7 @@ $(document).ready(function () {
             type: 'GET',
             success: function (data) {
                 $('#articles').html(''); //clear content
-                data[1].forEach(function(apiData, i) {
+                data[1].forEach((apiData, i) => {
                     $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li><font color='#F3E08A'>" +
                         data[1][i] + "</font><p>" + data[2][i] + "</p></li></a>");
                 });
