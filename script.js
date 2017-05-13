@@ -1,21 +1,22 @@
 // Global variable for animating the search bar
 var page_side = $(window).scrollLeft();
+
+//search bar animation
 window.onload = function() {
-//Animate search bar to the top of the page
         $('.search-wrapper').animate({
             right: page_side + 150,
         }, 1000);
 }
 
 $(document).ready(function () {
-    //function to submit search with enter key
+    //press enter to search
     $('#userInput').keydown(function (enter) {
         if (enter.which == 13) {
             $('#search').click();
         }
     });
 
-    //click function to submit search
+    //click and search
     $('#search').click(function () {
 
         $('.backgroundimage').css("overflow", "scroll");
@@ -32,13 +33,12 @@ $(document).ready(function () {
             dataType: 'json',
             type: 'GET',
             success: function (data) {
-                $('#articles').html(''); //clear content before new search
+                $('#articles').html(''); //clear content
                 data[1].forEach(function(apiData, i) {
-                //for (var i = 0; i < data[1].length; i++) {
                     $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li><font color='#F3E08A'>" +
                         data[1][i] + "</font><p>" + data[2][i] + "</p></li></a>");
                 });
-                $('#userInput').val(''); //clear search bar content after searching
+                $('#userInput').val(''); //clear search bar
             },
             error: function (error) {
                 console.log(error);
@@ -52,7 +52,7 @@ $(document).ready(function () {
         });
     });
 });
-//function for opening and closing search bar
+//open and close search bar
 function searchAnimation(obj, evt) {
     var container = $(obj).closest('.search-wrapper');
     if (!container.hasClass('active')) {
