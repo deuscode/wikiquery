@@ -33,10 +33,11 @@ $(document).ready(function () {
             type: 'GET',
             success: function (data) {
                 $('#articles').html(''); //clear content before new search
-                for (var i = 0; i < data[1].length; i++) {
+                data[1].forEach(function(apiData, i) {
+                //for (var i = 0; i < data[1].length; i++) {
                     $('#articles').prepend("<a target='_blank' href= " + data[3][i] + "><li><font color='#F3E08A'>" +
                         data[1][i] + "</font><p>" + data[2][i] + "</p></li></a>");
-                }
+                });
                 $('#userInput').val(''); //clear search bar content after searching
             },
             error: function (error) {
